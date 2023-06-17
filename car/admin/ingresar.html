@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulario de Ingreso de Producto</title>
+</head>
+<body>
+    <h1>Formulario de Ingreso de Producto</h1>
+    <form method="POST" action="guardar_producto.php">
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" name="name" required><br><br>
+        
+        <label for="description">Descripción:</label>
+        <textarea id="description" name="description" rows="4" cols="50" required></textarea><br><br>
+        
+        <label for="price">Precio:</label>
+        <input type="number" id="price" name="price" step="0.01" required><br><br>
+
+        <<div class="container">
+            <div class="row">
+                <div class="col-md-12">     
+                    <form enctype="multipart/form-data" method="post" action="upload.php">
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Texto a mostrar</label>
+                            <input type="text"  name="title" class="form-control"  placeholder="Texto a mostrar">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputFile">Imagen</label>
+                            <input type="file" name="image" required>
+                        </div>
+                        <input type="submit" value="Subir imagen" class="btn btn-primary">
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <input type="hidden" name="created" value="<?php echo date('Y-m-d H:i:s'); ?>">
+        <input type="hidden" name="modified" value="<?php echo date('Y-m-d H:i:s'); ?>">
+        
+        <label for="status">Estado:</label>
+        <select id="status" name="status" required>
+            <option value="1">Activo</option>
+            <option value="0">Inactivo</option>
+        </select><br><br>
+        
+        <input type="submit" value="Guardar">
+    </form>
+</body>
+</html>
